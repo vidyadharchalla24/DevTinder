@@ -1,17 +1,20 @@
 const express = require('express');
 
 const app = express();
+const {authAdmin,authUser} = require('./middlewares/auth');
 
-app.get("/home",(req,res)=>{
-    res.send("Welcome to Dashboard!!");
+app.use("/admin",authAdmin)
+
+app.get("/admin/getAllData",(req,res)=>{
+    
+    res.send("Gets all data!!");
 });
 
-app.get("/test",(req,res)=>{
-    res.send("Hello from the server!!");
+app.delete("/admin/deleteData",(req,res)=>{
+    res.send("data got deleted");
 });
 
-app.post("/user",(req,res)=>{
-    console.log(req.query)
+app.get("/user",authUser,(req,res)=>{
     res.send("Data saved successfully!!");
 });
 
