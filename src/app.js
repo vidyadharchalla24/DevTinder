@@ -14,7 +14,11 @@ app.delete("/admin/deleteData",(req,res)=>{
     res.send("data got deleted");
 });
 
-app.get("/user",authUser,(req,res)=>{
+app.get("/user/data",authUser,(req,res)=>{
+    res.send("Data saved successfully!!");
+});
+
+app.get("/user/login",(req,res)=>{
     res.send("Data saved successfully!!");
 });
 
