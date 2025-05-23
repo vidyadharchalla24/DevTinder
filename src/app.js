@@ -2,16 +2,17 @@ const express = require('express');
 
 const app = express();
 
-app.use("/home",(req,res)=>{
+app.get("/home",(req,res)=>{
     res.send("Welcome to Dashboard!!");
 });
 
-app.use("/test",(req,res)=>{
+app.get("/test",(req,res)=>{
     res.send("Hello from the server!!");
 });
 
-app.use("/",(req,res)=>{
-    res.send("Welcome to Server!!");
+app.post("/user",(req,res)=>{
+    console.log(req.query)
+    res.send("Data saved successfully!!");
 });
 
 app.listen(4000,()=>{
